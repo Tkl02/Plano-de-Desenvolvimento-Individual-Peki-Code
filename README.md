@@ -64,3 +64,53 @@ Olá, seja bem-vindo ao meu repositório do meu Plano de Desenvolvimento Individ
 * [Carlos Eduardo Rocha Miranda](https://github.com/CarlosERM)
 * [João Victor Rocha Vilela godoi](https://github.com/Joao-Victor-RVG)
 * [Matheus Fellipe](https://github.com/MatheusFellipi)
+
+<hr>
+<br>
+
+<h1 align="center"><em>Sobre o Projeto</em></h1>
+
+Neste projeto criei um app android que consiste em fazer o calculo estimativo sobre as chances de capturas de determinados pekemons atraves da entrada e seleção de alguns dados
+
+<!-- Primeira Box do APP -->
+### Catching Rate
+O "catching rate" pode ser obtido no seguinte site. Selecionando apenas o Pokemon:
+[pixelmonmod.com](https://pixelmonmod.com/wiki/Available_Pok%C3%A9mon).
+
+<!-- Box das PokeBollas -->
+### Select Pokebolls
+A "select pokeball" sera de acordo com a pokebola ultilizada.
+
+<figure align="center">
+    <img align="center" height=100 src="imgs/pokeballred.png" alt="1.0%">
+    <figcaption><h1>1.0%</h1></figcaption>
+</figure>
+<figure align="center">
+    <img align="center" height=100 src="imgs/pokeballblu.png">
+    <figcaption><h1>1.5%</h1></figcaption>
+</figure>
+<figure align="center">
+    <img align="center" height=100 src="imgs/pokeballblack.png">
+    <figcaption><h1>2.0%</h1></figcaption>
+</figure>
+
+<!-- Box de status -->
+### Select Status
+
+O "select Status" sera de acordo com o status aplicado no pokemons.
+
+<img align="center" height=100 src="imgs/none.png" alt="1.0%">
+<img align="center" height=100 src="imgs/paralyze.png">
+<img align="center" height=100 src="imgs/sleep.png">
+
+<hr>
+
+<!-- Box de status -->
+
+<div style="display: flex;">
+    <h1 style="margin-left: 35;">Home Page</h1>
+    <h1 style="margin-left: 75;">Primary Page</h1>
+</div>
+
+<img style="margin-right: 10px" align="center" height=500 src="imgs/homepage.png">
+<img align="center" height=504 src="imgs/primarypage.png">
