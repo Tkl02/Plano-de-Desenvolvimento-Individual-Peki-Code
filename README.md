@@ -99,9 +99,7 @@ A "select pokeball" sera de acordo com a pokebola ultilizada.
 
 O "select Status" sera de acordo com o status aplicado no pokemons.
 
-<img align="center" height=100 src="imgs/none.png" alt="1.0%">
-<img align="center" height=100 src="imgs/paralyze.png">
-<img align="center" height=100 src="imgs/sleep.png">
+<img align="center" height=100 src="imgs/none.png" alt="1.0%"><img align="center" height=100 src="imgs/paralyze.png"><img align="center" height=100 src="imgs/sleep.png">
 
 <hr>
 
@@ -112,5 +110,7 @@ O "select Status" sera de acordo com o status aplicado no pokemons.
     <h1 style="margin-left: 75;">Primary Page</h1>
 </div>
 
+<div style="display: flex;">
 <img style="margin-right: 10px" align="center" height=500 src="imgs/homepage.png">
 <img align="center" height=504 src="imgs/primarypage.png">
+</div>
