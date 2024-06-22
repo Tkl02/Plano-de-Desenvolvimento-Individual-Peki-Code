@@ -105,11 +105,9 @@ O "select Status" sera de acordo com o status aplicado no pokemons.
 
 <!-- Box de status -->
 
-<div style="display: flex;">
-<h1 style="margin-left: 35;">Home Page</h1><h1 style="margin-left: 75;">Primary Page</h1>
-</div>
+<h1>Home Page --- Primary Page</h1>
 
 <div style="display: flex;">
-<img style="margin-right: 10px" align="center" height=500 src="imgs/homepage.png">
+<img style="margin-right: 10" align="center" height=500 src="imgs/homepage.png">
 <img align="center" height=504 src="imgs/primarypage.png">
 </div>
