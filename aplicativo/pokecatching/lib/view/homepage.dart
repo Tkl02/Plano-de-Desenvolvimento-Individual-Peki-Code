@@ -6,6 +6,7 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -18,16 +19,18 @@ class Homepage extends StatelessWidget {
               child: FittedBox(
                 child: RawMaterialButton(
                   fillColor: Colors.red,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/pokepage');
+                  },
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: Text(
                     'Click here',
                     style: TextStyle(
                         color: Colors.yellow,
                         fontFamily: 'Customfont',
-                        shadows: [Shadow(offset: Offset(1.0, 1.0),blurRadius: 2.0, color: Color.fromARGB(255, 0, 120, 200))],
+                        shadows: [Shadow(offset: Offset(2.0, 1.0),blurRadius: 2.0, color: Color.fromARGB(255, 0, 120, 200))],
                         fontSize: 18.0),
                   ),
                 ),
