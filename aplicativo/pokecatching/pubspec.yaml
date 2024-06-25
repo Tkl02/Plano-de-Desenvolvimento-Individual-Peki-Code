@@ -34,4 +34,5 @@ flutter:
         - asset: assets/fonts/font.ttf
   assets:
     - assets/icon/icon.png
+    - assets/bottons/pokeballred.png
   uses-material-design: true
