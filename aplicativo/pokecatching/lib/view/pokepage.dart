@@ -9,39 +9,37 @@ class _PokePageState extends State<PokePage> {
   final TextEditingController _controller = TextEditingController();
   double _selectedValue = 0;
   double _selectedValueStatus = 0;
+  int _selectedPokeball = -1;
+  int _selectedStatus = -1;
 
-  void _onImageTap(double value) {
+  void _onImageTap(double value, int index) {
     setState(() {
       _selectedValue = value;
+      _selectedPokeball = index;
     });
     print('Selected value: $_selectedValue');
   }
 
-  void _onImageTapStatus(double valueStatus) {
+  void _onImageTapStatus(double valueStatus, int index) {
     setState(() {
       _selectedValueStatus = valueStatus;
+      _selectedStatus = index;
     });
     print('Selected value status: $_selectedValueStatus');
   }
 
   void _calculateAndShowResult() {
     final inputValue = double.tryParse(_controller.text) ?? 0;
-    final resultps = (inputValue *
-            _selectedValue *
-            _selectedValueStatus *
-            (1 - (2 / 3) * (1))) /
-        255;
-
-    final result = resultps * 100;
+    final result = _selectedValue * _selectedValueStatus * inputValue;
 
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(
-            'Resultado',
+            'Chance de Captura',
             style: TextStyle(
-                color: Colors.yellow,
+                color: const Color.fromARGB(255, 0, 0, 0),
                 fontFamily: 'Customfont',
                 shadows: [
                   Shadow(
@@ -49,12 +47,12 @@ class _PokePageState extends State<PokePage> {
                       blurRadius: 2.0,
                       color: Color.fromARGB(255, 0, 120, 200))
                 ],
-                fontSize: 20.0),
+                fontSize: 26.0),
           ),
           content: Text(
-            '${result.toStringAsFixed(2)%}',
+            '${result.toStringAsFixed(2)}\%',
             style: TextStyle(
-                color: Color.fromARGB(255, 0, 0, 0),
+                color: const Color.fromARGB(255, 0, 0, 0),
                 fontFamily: 'Customfont',
                 shadows: [
                   Shadow(
@@ -62,7 +60,7 @@ class _PokePageState extends State<PokePage> {
                       blurRadius: 2.0,
                       color: Color.fromARGB(255, 0, 120, 200))
                 ],
-                fontSize: 32.0),
+                fontSize: 36.0),
           ),
           actions: <Widget>[
             TextButton(
@@ -98,7 +96,9 @@ class _PokePageState extends State<PokePage> {
           width: 345,
           height: 680,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SizedBox(height: 20),
               Text(
                 'Rate catching of pokemon',
                 style: TextStyle(
@@ -114,14 +114,19 @@ class _PokePageState extends State<PokePage> {
                   fontSize: 24.0,
                 ),
               ),
-              TextField(
-                controller: _controller,
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Cat rate',
+              SizedBox(height: 10),
+              Container(
+                width: 250,
+                child: TextField(
+                  controller: _controller,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Cat rate',
+                  ),
                 ),
               ),
+              SizedBox(height: 20),
               Text(
                 'Select Pokeball',
                 style: TextStyle(
@@ -137,46 +142,22 @@ class _PokePageState extends State<PokePage> {
                   fontSize: 24.0,
                 ),
               ),
+              SizedBox(height: 10),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.blue, // Cor da borda
-                      width: 2.0, // Largura da borda
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: () => _onImageTap(1.0),
-                        child: Image.asset(
-                          'assets/bottons/pokeballred.png',
-                          width: 100,
-                          height: 100,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () => _onImageTap(1.5),
-                        child: Image.asset(
-                          'assets/bottons/pokeballb.png',
-                          width: 100,
-                          height: 100,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () => _onImageTap(2.0),
-                        child: Image.asset(
-                          'assets/bottons/pokeballblu.png',
-                          width: 100,
-                          height: 100,
-                        ),
-                      ),
-                    ],
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildPokeballButton(
+                        1.0, 0, 'assets/bottons/pokeballred.png'),
+                    _buildPokeballButton(
+                        1.5, 1, 'assets/bottons/pokeballb.png'),
+                    _buildPokeballButton(
+                        2.0, 2, 'assets/bottons/pokeballblu.png'),
+                  ],
                 ),
               ),
+              SizedBox(height: 20),
               Text(
                 'Select Status',
                 style: TextStyle(
@@ -192,68 +173,67 @@ class _PokePageState extends State<PokePage> {
                   fontSize: 24.0,
                 ),
               ),
+              SizedBox(height: 10),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.blue, // Cor da borda
-                      width: 2.0, // Largura da borda
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: () => _onImageTapStatus(1.5),
-                        child: Image.asset(
-                          'assets/bottons/queimado.png',
-                          width: 100,
-                          height: 100,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () => _onImageTapStatus(1.5),
-                        child: Image.asset(
-                          'assets/bottons/paralyze.png',
-                          width: 100,
-                          height: 100,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () => _onImageTapStatus(2.5),
-                        child: Image.asset(
-                          'assets/bottons/sleep.png',
-                          width: 100,
-                          height: 100,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () => _onImageTapStatus(2.5),
-                        child: Image.asset(
-                          'assets/bottons/congelado.png',
-                          width: 100,
-                          height: 100,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () => _onImageTapStatus(1.5),
-                        child: Image.asset(
-                          'assets/bottons/veneno.png',
-                          width: 100,
-                          height: 100,
-                        ),
-                      ),
-                    ],
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildStatusButton(1.5, 0, 'assets/bottons/queimado.png'),
+                    _buildStatusButton(1.5, 1, 'assets/bottons/paralyze.png'),
+                    _buildStatusButton(2.5, 2, 'assets/bottons/sleep.png'),
+                    _buildStatusButton(2.5, 3, 'assets/bottons/congelado.png'),
+                    _buildStatusButton(1.5, 4, 'assets/bottons/veneno.png'),
+                  ],
                 ),
               ),
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _calculateAndShowResult,
                 child: Text('Calcular'),
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildPokeballButton(double value, int index, String imagePath) {
+    return GestureDetector(
+      onTap: () => _onImageTap(value, index),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: _selectedPokeball == index ? Colors.red : Colors.transparent,
+            width: 3.0,
+          ),
+        ),
+        margin: EdgeInsets.symmetric(horizontal: 8),
+        child: Image.asset(
+          imagePath,
+          width: 100,
+          height: 100,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildStatusButton(double valueStatus, int index, String imagePath) {
+    return GestureDetector(
+      onTap: () => _onImageTapStatus(valueStatus, index),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: _selectedStatus == index ? Colors.red : Colors.transparent,
+            width: 3.0,
+          ),
+        ),
+        margin: EdgeInsets.symmetric(horizontal: 8),
+        child: Image.asset(
+          imagePath,
+          width: 100,
+          height: 100,
         ),
       ),
     );
