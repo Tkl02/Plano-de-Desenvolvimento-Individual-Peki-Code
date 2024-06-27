@@ -8,9 +8,9 @@ class PokePage extends StatefulWidget {
 }
 
 class _PokePageState extends State<PokePage> {
-  int _selectedValue = 0;
+  double _selectedValue = 0;
 
-  void _onImageTap(int value) {
+  void _onImageTap(double value) {
     setState(() {
       _selectedValue = value;
     });
@@ -37,25 +37,122 @@ class _PokePageState extends State<PokePage> {
           height: 680,
           child: Column(
             children: [
-              Text('Rate cating of pokemon'),
-              //TODO
-
-              Text('Select Pokeball'),
+              Text(
+                'Rate cating of pokemon',
+                style: TextStyle(
+                    color: Colors.yellow,
+                    fontFamily: 'Customfont',
+                    shadows: [
+                      Shadow(
+                          offset: Offset(2.0, 1.0),
+                          blurRadius: 2.0,
+                          color: Color.fromARGB(255, 0, 120, 200))
+                    ],
+                    fontSize: 24.0),
+              ),
+              Text(
+                'Select Pokeball',
+                style: TextStyle(
+                    color: Colors.yellow,
+                    fontFamily: 'Customfont',
+                    shadows: [
+                      Shadow(
+                          offset: Offset(2.0, 1.0),
+                          blurRadius: 2.0,
+                          color: Color.fromARGB(255, 0, 120, 200))
+                    ],
+                    fontSize: 24.0),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () => _onImageTap(1.0),
+                      child: Image.asset(
+                        'assets/bottons/pokeballred.png',
+                        width: 100,
+                        height: 100,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () => _onImageTap(1.5),
+                      child: Image.asset(
+                        'assets/bottons/pokeballb.png',
+                        width: 100,
+                        height: 100,
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () => _onImageTap(2.0),
+                      child: Image.asset(
+                        'assets/bottons/pokeballblu.png',
+                        width: 100,
+                        height: 100,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Text(
+                'Select Status',
+                style: TextStyle(
+                    color: Colors.yellow,
+                    fontFamily: 'Customfont',
+                    shadows: [
+                      Shadow(
+                          offset: Offset(2.0, 1.0),
+                          blurRadius: 2.0,
+                          color: Color.fromARGB(255, 0, 120, 200))
+                    ],
+                    fontSize: 24.0),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
                     onTap: () => _onImageTap(1),
                     child: Image.asset(
-                      'assets/bottons/pokeballred.png',
-                      width: 80,
-                      height: 80,
+                      'assets/bottons/queimado.png',
+                      width: 100,
+                      height: 100,
                     ),
-                  )
+                  ),
+                  GestureDetector(
+                    onTap: () => _onImageTap(1),
+                    child: Image.asset(
+                      'assets/bottons/paralyze.png',
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => _onImageTap(2.5),
+                    child: Image.asset(
+                      'assets/bottons/sleep.png',
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => _onImageTap(2.5),
+                    child: Image.asset(
+                      'assets/bottons/congelado.png',
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => _onImageTap(2.5),
+                    child: Image.asset(
+                      'assets/bottons/veneno.png',
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
                 ],
-              ),
-              Text('Select Status'),
-              //TODO CRIAR SELEÇÃO DE STATUS + FUNCIONALIDADE BOTÃO E ATRIBUIR VALORES.
+              )
             ],
           ),
         ),

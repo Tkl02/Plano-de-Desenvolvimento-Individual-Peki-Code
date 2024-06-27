@@ -34,5 +34,12 @@ flutter:
         - asset: assets/fonts/font.ttf
   assets:
     - assets/icon/icon.png
+    - assets/bottons/pokeballb.png
     - assets/bottons/pokeballred.png
+    - assets/bottons/pokeballblu.png
+    - assets/bottons/paralyze.png
+    - assets/bottons/sleep.png
+    - assets/bottons/queimado.png
+    - assets/bottons/congelado.png
+    - assets/bottons/veneno.png
   uses-material-design: true
